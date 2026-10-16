@@ -54,7 +54,7 @@ const bookStore = {
          // Clear any existing items  ( including the placeholder with id 'deleted-this')
          bookList.innerHTML ="";
          // 3. Loop through the books array and render each book
-         books.forEach((book) => {
+         bookStore.books.forEach((book) => {
             const bookContainer = document.createElement("li");
             //create an h3 element for the book title
             const bookTitle = document.createElement("h3");
@@ -64,7 +64,7 @@ const bookStore = {
             bookAuthor.textContent = book.author;
             // Create an img element for the book cover image 
             const bookImage = document.createElement("img");
-            bookImage.src = book.image;
+            bookImage.src = book.imageUrl;
             // Append title. author, and image element into the list item container
             bookContainer.appendChild(bookTitle);
             bookContainer.appendChild(bookAuthor);

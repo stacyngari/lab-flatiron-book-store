@@ -43,33 +43,29 @@ const bookStore = {
         }
     ]
 };
-const header = document.getElementById('header');
-header.innerText =bookStore.name;// 2. select the book list container from the HTML
-        const booklist = document.getElementById('book-list');
-        // 3. loop through each book in the bookstore's book array
-        bookStore.books.forEach(book => {
-        // Create a list item element for the book title
-        const li = document.createElement('li');
+ document.addEventListener("DOMContentLoaded", () => {
+        // 1. Update the header element taxt content
+         const header = document.querySelector("#header");
+         header.textContent = "Flatbooks Technical Books";
 
-        // Create an h3 element for the book title 
-        const h3 = document.createElement('h3');
-        h3.innerText = book.title;
+         // 2. Select the book list container
+         const booklist = document.querySelector("#book-list");
 
-        // Create a p element for the author
-        const authorP =document.createElement('p');
-        authorP.innerText = book.author;
-        
-        // Create an img element for the  book cover image 
-        const img = document.createElement('img');
-        img.src = book.imageUrl
+         // Clear any existing items  ( including the placeholder with id 'deleted-this')
+         bookList.innerHTML ="";
+         // 3. Loop through the books array and rener each book
+         books.forEach((book) => {
+            const bookContainer = document.createElement("li");
 
-        // Append the title author, and image elements into a list item
-        li.appendChild(h3);
-        li.appendChild(authorP);
-        li.appendChild(img);
+            // Example  structure depend on your lab requirements:
+            bookContainer.textContent = book.title;
 
-        // Append the complete list item into the main book list on the page
-        booklist.appendChild(listItem);
+            //if your lab requires specific structure or classes/IDs add them here
+            // e.g., bookContainer.innerHTML = `<span id="delete-this">${book.title}</span>`;
+            // Adjust according to the specific properties required by your book object
+
+            bookList.appendChild(bookContainer);
+         });
         });
         // manupulating existing elements
         const bookstoreTitle = document.getElementById('header')

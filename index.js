@@ -49,22 +49,29 @@ const bookStore = {
          header.textContent = "Flatbooks Technical Books";
 
          // 2. Select the book list container
-         const booklist = document.querySelector("#book-list");
+         const bookList = document.querySelector("#book-list");
 
          // Clear any existing items  ( including the placeholder with id 'deleted-this')
          bookList.innerHTML ="";
-         // 3. Loop through the books array and rener each book
+         // 3. Loop through the books array and render each book
          books.forEach((book) => {
             const bookContainer = document.createElement("li");
+            //create an h3 element for the book title
+            const bookTitle = document.createElement("h3");
+            bookTitle.textContent = book.title;
+            // Create a p element for the author
+            const bookAuthor = document.createElement("p");
+            bookAuthor.textContent = book.author;
+            // Create an img element for the book cover image 
+            const bookImage = document.createElement("img");
+            bookImage.src = book.image;
+            // Append title. author, and image element into the list item container
+            bookContainer.appendChild(bookTitle);
+            bookContainer.appendChild(bookAuthor);
+            bookContainer.appendChild(bookImage);
 
-            // Example  structure depend on your lab requirements:
-            bookContainer.textContent = book.title;
-
-            //if your lab requires specific structure or classes/IDs add them here
-            // e.g., bookContainer.innerHTML = `<span id="delete-this">${book.title}</span>`;
-            // Adjust according to the specific properties required by your book object
-
-            bookList.appendChild(bookContainer);
+            // Append the complete list item into the main book list on the page
+            booklist.appendChild(bookContainer);
          });
         });
         // manupulating existing elements
